@@ -83,7 +83,7 @@ export default function MedalSection({
                   }`}
                   onMouseEnter={() => setHoveredMedal(medal)}
                   onMouseLeave={() => setHoveredMedal(null)}
-                  whileHover={{ scale: 1.02, x: 5 }}
+                  whileHover={{ scale: 1.02 }}
                 >
                   <div className="flex items-center justify-center h-10 w-10 rounded-full bg-white/80 mr-3 shadow-sm">
                     {medalIcons[medal.type]}
@@ -102,7 +102,7 @@ export default function MedalSection({
               ))}
             </div>
 
-            {hoveredMedal && (
+            {/* {hoveredMedal && (
               <motion.div
                 initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -130,7 +130,7 @@ export default function MedalSection({
                   )}
                 </div>
               </motion.div>
-            )}
+            )} */}
           </motion.div>
         )}
       </AnimatePresence>

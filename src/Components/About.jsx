@@ -1,6 +1,6 @@
 export default function About() {
   return (
-    <div className="flex flex-col justify-center bg-amber-300 p-4 rounded-lg shadow-md">
+    <div className="flex flex-col justify-center p-4 rounded-lg shadow-md">
       <h2 className="text-2xl font-bold pb-2">About</h2>
       <p>
         Stan Cosmin is a professional fencer specializing in sabre. With

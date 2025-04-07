@@ -2,12 +2,12 @@ import sponsors from "../Athlete/sponsors";
 
 export default function Sponsors() {
   return (
-    <div className="flex flex-col justify-center bg-amber-300 p-4 rounded-lg shadow-md relative">
+    <div className="flex flex-col justify-center p-4 rounded-lg shadow-md relative">
       <h2 className="text-2xl font-bold pb-2 text-left">Sponsors</h2>
 
       <div className="relative">
         {/* Containerul principal cu scroll */}
-        <div className="flex overflow-x-auto scrollbar-hide gap-4 py-2 px-2 scroll-smooth">
+        <div className="flex overflow-x-auto scrollbar-hide gap-5 py-2 px-2 scroll-smooth">
           {sponsors.map((sponsor) => (
             <div
               key={sponsor.id}
@@ -29,7 +29,7 @@ export default function Sponsors() {
         </div>
 
         {/* Gradient fade-out pe partea dreaptă */}
-        <div className="pointer-events-none absolute inset-y-0 right-0 w-20 bg-gradient-to-l from-amber-300 to-transparent"></div>
+        <div className="pointer-events-none absolute inset-y-0 right-[-1px] w-40 bg-gradient-to-l from-[#0d0d0d] to-transparent"></div>
       </div>
     </div>
   );

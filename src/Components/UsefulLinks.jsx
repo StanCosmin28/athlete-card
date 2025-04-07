@@ -3,7 +3,7 @@ import { usefulLinks } from "../Athlete/usefulLinks"; // Adjust the path as need
 
 export default function UsefulLinks() {
   return (
-    <div className="flex flex-col justify-center bg-amber-300 p-4 rounded-lg shadow-md relative">
+    <div className="flex flex-col justify-center p-4 rounded-lg shadow-md relative">
       <h2 className="text-2xl font-bold pb-2 text-left">Useful Links</h2>
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
         {usefulLinks.map((link, index) => (

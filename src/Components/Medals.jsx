@@ -1,10 +1,6 @@
-// export default function Medals() {
-
-// }
 import { useState } from "react";
 import MedalSection from "./MadalSection";
-import dummyData from "../Athlete/athlete"; // Importăm datele dummy
-// Date dummy pentru medalii
+import dummyData from "../Athlete/athlete";
 
 export default function Medals() {
   //   const [activeSection, setActiveSection] = useState("international");
@@ -15,7 +11,7 @@ export default function Medals() {
   };
 
   return (
-    <div className="flex flex-col justify-center bg-amber-300 p-4 rounded-lg shadow-md">
+    <div className="flex flex-col justify-center p-4 rounded-lg shadow-md">
       <div className="text-left mb-8">
         <h2 className="text-3xl font-bold mb-2">Medals/Results</h2>
         {/* <p className="text-muted-foreground">

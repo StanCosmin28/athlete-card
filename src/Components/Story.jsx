@@ -6,7 +6,7 @@ export default function StorySection() {
   const [isExpanded, setIsExpanded] = useState(false);
 
   return (
-    <div className="flex flex-col justify-center bg-amber-300 p-4 rounded-lg shadow-md relative">
+    <div className="flex flex-col justify-center p-4 rounded-lg shadow-md relative">
       <h2 className="text-2xl font-bold pb-2 text-left">Athlete's Story</h2>
       <div className="bg-white dark:bg-gray-800 rounded-lg shadow-md overflow-hidden border border-gray-200 dark:border-gray-700 relative">
         <div className="p-4 relative">
