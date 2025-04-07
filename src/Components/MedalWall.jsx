@@ -85,8 +85,8 @@ const Medal = ({ type, index }) => {
 
 export default function MedalWall() {
   const { ref, inView } = useInView({
-    triggerOnce: true, // Asigură-te că animația se declanșează doar o dată
-    threshold: 0.2, // Declanșează animația când 20% din secțiune este vizibilă
+    triggerOnce: true, //rebember to trigger only once
+    threshold: 0.2, // Trigger the animation when 20% of the section is visible
   });
 
   return (

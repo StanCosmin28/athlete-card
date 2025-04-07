@@ -12,11 +12,13 @@ import Highlights from "./Components/Highlights";
 // import MedalsPitComponent from "./Components/MedalPitComponent";
 import MedalWall from "./Components/MedalWall";
 import ImageTest from "./Components/ImageTest";
+import FixedBackground from "./Components/FixedBackground";
 // import MedalPhysicsWall from "./Components/MedalPhysicsWall";
 
 function App() {
   return (
     <>
+      <FixedBackground />
       <ThemeToggle />
       <div className="max-w-7xl mx-auto px-4 py-8">
         <h1 className="flex justify-center">Athelte App</h1>
