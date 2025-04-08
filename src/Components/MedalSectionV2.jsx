@@ -91,8 +91,8 @@ export default function MedalSection({
                     initial={{ opacity: 0, y: -10 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.2, delay: index * 0.2 }}
-                    className={`flex items-center rounded-md border cursor-pointer p-3 transition-colors ${variant.bg} ${variant.border} ${variant.hover} ${variant.text}`}
-                    whileHover={{ scale: 1.01 }}
+                    className={`flex items-center transform-color rounded-md border cursor-pointer p-3 ${variant.bg} ${variant.border} ${variant.hover} ${variant.text}`}
+                    // whileHover={{ scale: 1.01 }}
                   >
                     <div className="mr-3 flex h-10 w-10 items-center justify-center rounded-full border bg-background shadow-sm">
                       {medalIcons[medal.type]}

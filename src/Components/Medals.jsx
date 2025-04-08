@@ -13,8 +13,8 @@ export default function Medals() {
   return (
     <div
       className="flex flex-col justify-center p-8 rounded-2xl
-      bg-gradient-to-br from-white/40 to-white/20 dark:from-slate-900/40 dark:to-slate-900/20
-      backdrop-blur-lg border border-white/30 dark:border-slate-700/50
+      bg-gradient-to-br dark:from-slate-900/40 dark:to-slate-900/20
+      backdrop-blur-sm border dark:border-slate-700/50
       shadow-xl shadow-blue-500/10 dark:shadow-blue-800/10 mx-auto relative overflow-hidden"
     >
       {/* Decorative elements for a more modern look */}

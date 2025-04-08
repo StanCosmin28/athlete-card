@@ -71,13 +71,13 @@ const Medal = ({ type, index }) => {
         stiffness: 100,
         damping: 12,
       }}
-      whileHover={{ scale: 1.1 }}
+      // whileHover={{ scale: 1.1 }}
       className="w-14 h-14 sm:w-16 sm:h-16 m-1 sm:m-2"
     >
       <img
         src={MedalIcon}
         alt={`${type} medal`}
-        className="w-full h-full object-contain"
+        className="w-full h-full object-contain hover:scale-110 transition-transform duration-300"
       />
     </motion.div>
   );
@@ -95,7 +95,12 @@ export default function MedalWall() {
       className="grid grid-cols-5 sm:grid-cols-6 md:grid-cols-8 lg:grid-cols-10 gap-2 sm:gap-4 p-4 sm:p-8 justify-items-center "
     >
       {medalsData.map((medal, index) => (
-        <Medal key={medal.id} type={medal.type} index={index} />
+        <Medal
+          key={medal.id}
+          type={medal.type}
+          index={index}
+          shouldAnimate={inView}
+        />
       ))}
     </div>
   );

@@ -18,6 +18,7 @@ import StoryV2 from "./Components/StoryV2";
 import UsefulLinksV2 from "./Components/UsefulLinksV2";
 import SponsorsV2 from "./Components/SponsorsV2";
 import FixedBackgroundV2 from "./Components/FixedBackgroundV2";
+import Copyrights from "./Components/Copyrights";
 // import GlassmorphismWrapper from "./Components/GlassmorphismWrapper";
 // import MedalPhysicsWall from "./Components/MedalPhysicsWall";
 import { useState } from "react";
@@ -79,18 +80,19 @@ function App() {
         {/* <Story />
         <StoryV2 /> */}
       </div>
-      <div className="max-w-7xl mx-auto px-4 py-4">
+      {/* <div className="max-w-7xl mx-auto px-4 py-4">
         <Highlights />
-      </div>
-      <div className="max-w-7xl max-h-[550px] mx-auto px-4 py-4">
+      </div> */}
+      {/* <div className="max-w-7xl max-h-[550px] mx-auto px-4 py-4">
         <h2 className="text-3xl font-bold">Medals</h2>
-        {/* <MedalsPitComponent /> */}
+        <MedalsPitComponent />
         <MedalWall />
-        {/* <MedalPhysicsWall /> */}
-      </div>
+        <MedalPhysicsWall />
+      </div> */}
       <div className="max-w-7xl mx-auto px-4 py-4">
         <ImageTest />
       </div>
+      <Copyrights />
     </>
   );
 }

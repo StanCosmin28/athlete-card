@@ -1,34 +1,77 @@
-export default function ImageTest() {
+import { motion, useAnimation } from "framer-motion";
+import { useInView } from "react-intersection-observer";
+import { useEffect } from "react";
+import img4 from "../assets/me1.png";
+import img5 from "../assets/me2.png";
+import img6 from "../assets/me3.png";
+import img7 from "../assets/me4.png";
+import img8 from "../assets/me5.png";
+import img9 from "../assets/profile-me.png";
+
+const ImageGrid = ({ images }) => {
+  const controls = useAnimation();
+  const [ref, inView] = useInView({
+    triggerOnce: true,
+    threshold: 0.1,
+  });
+
+  useEffect(() => {
+    if (inView) {
+      controls.start("visible");
+    }
+  }, [controls, inView]);
+
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.1,
+      },
+    },
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.6,
+        ease: "easeOut",
+      },
+    },
+  };
+
   return (
-    <div className="grid grid-cols-2 gap-2">
-      <div>
-        <img
-          className="h-auto max-w-full rounded-lg"
-          src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image-1.jpg"
-          alt=""
-        />
-      </div>
-      <div>
-        <img
-          className="h-auto max-w-full rounded-lg"
-          src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image-2.jpg"
-          alt=""
-        />
-      </div>
-      <div>
-        <img
-          className="h-auto max-w-full rounded-lg"
-          src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image-3.jpg"
-          alt=""
-        />
-      </div>
-      <div>
-        <img
-          className="h-auto max-w-full rounded-lg"
-          src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image-4.jpg"
-          alt=""
-        />
-      </div>
-    </div>
+    <motion.div
+      ref={ref}
+      initial="hidden"
+      animate={controls}
+      variants={containerVariants}
+      className="flex flex-wrap justify-center gap-4 p-4"
+    >
+      {images.map((img, index) => (
+        <motion.div
+          key={index}
+          variants={itemVariants}
+          className="w-full sm:w-[calc(50%-1rem)] md:w-[calc(33.333%-1rem)] lg:w-[calc(25%-1rem)] xl:w-[calc(20%-1rem)]"
+        >
+          <img
+            src={img}
+            alt={`Gallery item ${index + 1}`}
+            className="w-full h-auto rounded-lg object-cover shadow-md hover:shadow-lg transition-shadow duration-300"
+            loading="lazy"
+          />
+        </motion.div>
+      ))}
+    </motion.div>
   );
+};
+
+// Usage example
+export default function PhotosComponent() {
+  const sampleImages = [img4, img5, img6, img7, img8, img9];
+
+  return <ImageGrid images={sampleImages} />;
 }
