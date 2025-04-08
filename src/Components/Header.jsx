@@ -13,19 +13,19 @@
 import { motion } from "framer-motion";
 import stanc from "../assets/profile-me.png";
 
-export default function Header() {
+export default function AthleteHeader() {
   return (
     <motion.div
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.6 }}
-      className="group relative flex flex-col items-center justify-center p-8 rounded-xl bg-card shadow-lg overflow-hidden"
+      className="group relative flex flex-col items-center justify-center rounded-xl bg-card shadow-lg overflow-hidden"
     >
       {/* Floating avatar with shine effect */}
       <motion.div
         whileHover={{ y: -10 }}
         transition={{ type: "spring", stiffness: 300 }}
-        className="relative mb-6"
+        className="relative mb-6 mt-4"
       >
         <div className="absolute inset-0 rounded-full bg-gradient-to-br from-blue-400/20 to-purple-400/20 dark:from-blue-600/20 dark:to-purple-600/40 blur-md group-hover:blur-lg transition-all duration-500"></div>{" "}
         <img

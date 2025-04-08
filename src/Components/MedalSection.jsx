@@ -72,27 +72,28 @@ export default function MedalSection({
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
-            transition={{ duration: 0.3 }}
+            // transition={{ duration: 0.2 }}
             className="mt-2 overflow-hidden"
           >
-            <div
+            {/* <div
               className="grid gap-2 p-3 rounded-xl
               bg-white/30 dark:bg-slate-900/30
               backdrop-blur-md border border-white/30 dark:border-slate-700/50
               shadow-md shadow-blue-500/5 dark:shadow-blue-800/5"
-            >
+              > */}
+            <div className="grid gap-2 rounded-lg bg-card p-4 shadow-sm">
               {medalsArray.map((medal, index) => (
                 <motion.div
                   key={medal.id || index}
                   initial={{ opacity: 0, y: -10 }}
                   animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: -10 }}
-                  transition={{ duration: 0.2, delay: index * 0.05 }}
-                  className={`flex items-center px-3 py-2 rounded-lg cursor-pointer border transition-all duration-200 ${
+                  // exit={{ opacity: 0, y: -10 }}
+                  transition={{ duration: 0.2, delay: index * 0.2 }}
+                  className={`flex items-center px-3 py-2 rounded-md cursor-pointer border transition-colors ${
                     medalColors[medal.type]
                   }`}
-                  onMouseEnter={() => setHoveredMedal(medal)}
-                  onMouseLeave={() => setHoveredMedal(null)}
+                  // onMouseEnter={() => setHoveredMedal(medal)}
+                  // onMouseLeave={() => setHoveredMedal(null)}
                   whileHover={{ scale: 1.01 }}
                 >
                   <div className="flex items-center justify-center h-8 w-8 rounded-full bg-white/60 dark:bg-slate-800/60 mr-2 shadow-sm border border-white/40 dark:border-slate-600/40">
