@@ -13,7 +13,11 @@ import Highlights from "./Components/Highlights";
 import MedalWall from "./Components/MedalWall";
 import ImageTest from "./Components/ImageTest";
 import FixedBackground from "./Components/FixedBackground";
-import GlassmorphismWrapper from "./Components/GlassmorphismWrapper";
+import MedalsV2 from "./Components/MedalsV2";
+import StoryV2 from "./Components/StoryV2";
+import UsefulLinksV2 from "./Components/UsefulLinksV2";
+import SponsorsV2 from "./Components/SponsorsV2";
+// import GlassmorphismWrapper from "./Components/GlassmorphismWrapper";
 // import MedalPhysicsWall from "./Components/MedalPhysicsWall";
 
 function App() {
@@ -26,22 +30,26 @@ function App() {
         <AthleteHeader />
       </div>
       <div className="max-w-7xl mx-auto px-4 py-4">
-        <GlassmorphismWrapper>
-          <About />
-          {/* <MedalWall /> */}
-        </GlassmorphismWrapper>
+        {/* <GlassmorphismWrapper> */}
+        <About />
+        {/* <MedalWall /> */}
+        {/* </GlassmorphismWrapper> */}
       </div>
       <div className="max-w-7xl mx-auto px-4 py-4">
         <Medals />
+        <MedalsV2 />
       </div>
       <div className="max-w-7xl mx-auto px-4 py-4">
         <Sponsors />
+        <SponsorsV2 />
       </div>
       <div className="max-w-7xl mx-auto px-4 py-4">
         <UsefulLinks />
+        <UsefulLinksV2 />
       </div>
       <div className="max-w-7xl mx-auto px-4 py-4">
         <Story />
+        <StoryV2 />
       </div>
       <div className="max-w-7xl mx-auto px-4 py-4">
         <Highlights />

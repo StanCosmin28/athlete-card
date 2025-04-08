@@ -4,7 +4,7 @@ import { useState } from "react";
 
 const CustomBadge = ({ children, className = "" }) => (
   <span
-    className={`inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium ${className}`}
+    className={`inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium ${className}`}
   >
     {children}
   </span>
@@ -19,9 +19,9 @@ const medalColors = {
 };
 
 const medalIcons = {
-  gold: <Trophy className="h-5 w-5 text-amber-500 dark:text-amber-300" />,
-  silver: <Trophy className="h-5 w-5 text-slate-400 dark:text-slate-300" />,
-  bronze: <Trophy className="h-5 w-5 text-orange-500 dark:text-orange-300" />,
+  gold: <Trophy className="h-4 w-4 text-amber-500 dark:text-amber-300" />,
+  silver: <Trophy className="h-4 w-4 text-slate-400 dark:text-slate-300" />,
+  bronze: <Trophy className="h-4 w-4 text-orange-500 dark:text-orange-300" />,
 };
 
 export default function MedalSection({
@@ -40,14 +40,14 @@ export default function MedalSection({
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5 }}
-      className="mb-6"
+      className="mb-4"
     >
       <button
         onClick={onToggle}
-        className="flex justify-between items-center w-full p-4 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all duration-300 group
+        className="flex justify-between items-center w-full px-4 py-3 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all duration-300 group
         bg-white/20 dark:bg-slate-900/30
         backdrop-blur-md border border-white/30 dark:border-slate-700/50
-        shadow-lg shadow-blue-500/5 dark:shadow-blue-800/5 hover:shadow-xl hover:shadow-blue-500/10 dark:hover:shadow-blue-800/10
+        shadow-md shadow-blue-500/5 dark:shadow-blue-800/5 hover:shadow-lg hover:shadow-blue-500/10 dark:hover:shadow-blue-800/10
         text-slate-800 dark:text-slate-100
         hover:bg-white/30 dark:hover:bg-slate-800/40"
       >
@@ -76,10 +76,10 @@ export default function MedalSection({
             className="mt-2 overflow-hidden"
           >
             <div
-              className="grid gap-3 p-4 rounded-xl
+              className="grid gap-2 p-3 rounded-xl
               bg-white/30 dark:bg-slate-900/30
               backdrop-blur-md border border-white/30 dark:border-slate-700/50
-              shadow-lg shadow-blue-500/5 dark:shadow-blue-800/5"
+              shadow-md shadow-blue-500/5 dark:shadow-blue-800/5"
             >
               {medalsArray.map((medal, index) => (
                 <motion.div
@@ -88,25 +88,27 @@ export default function MedalSection({
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, y: -10 }}
                   transition={{ duration: 0.2, delay: index * 0.05 }}
-                  className={`flex items-center p-3 rounded-lg cursor-pointer border transition-all duration-200 ${
+                  className={`flex items-center px-3 py-2 rounded-lg cursor-pointer border transition-all duration-200 ${
                     medalColors[medal.type]
                   }`}
                   onMouseEnter={() => setHoveredMedal(medal)}
                   onMouseLeave={() => setHoveredMedal(null)}
-                  whileHover={{ scale: 1.02 }}
+                  whileHover={{ scale: 1.01 }}
                 >
-                  <div className="flex items-center justify-center h-10 w-10 rounded-full bg-white/60 dark:bg-slate-800/60 mr-3 shadow-md border border-white/50 dark:border-slate-600/50">
+                  <div className="flex items-center justify-center h-8 w-8 rounded-full bg-white/60 dark:bg-slate-800/60 mr-2 shadow-sm border border-white/40 dark:border-slate-600/40">
                     {medalIcons[medal.type]}
                   </div>
                   <div className="flex-1">
-                    <h4 className="font-medium text-sm">{medal.competition}</h4>
-                    <div className="flex items-center text-xs text-gray-600 dark:text-gray-300 mt-1">
+                    <h4 className="font-medium text-sm leading-tight">
+                      {medal.competition}
+                    </h4>
+                    <div className="flex items-center text-xs text-gray-600 dark:text-gray-300 mt-0.5">
                       <Calendar className="h-3 w-3 mr-1" />
                       <span>{medal.year}</span>
                     </div>
                   </div>
                   <CustomBadge
-                    className={`border capitalize border-${
+                    className={`ml-2 border capitalize border-${
                       medal.type === "gold"
                         ? "amber"
                         : medal.type === "silver"
@@ -124,13 +126,13 @@ export default function MedalSection({
                         : medal.type === "silver"
                         ? "slate"
                         : "orange"
-                    }-100/50 dark:bg-${
+                    }-100/40 dark:bg-${
                       medal.type === "gold"
                         ? "amber"
                         : medal.type === "silver"
                         ? "slate"
                         : "orange"
-                    }-900/30 text-${
+                    }-900/20 text-${
                       medal.type === "gold"
                         ? "amber"
                         : medal.type === "silver"

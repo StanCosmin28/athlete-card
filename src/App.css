@@ -7,7 +7,8 @@
 
 html.dark {
   /* --background: rgba(241, 227, 210, 255); */
-  --background: linear-gradient(135deg, #f0f4ff 0%, #f5f7ff 100%);
+  --background: whitesmoke;
+  /* --background: linear-gradient(135deg, #f0f4ff 0%, #f5f7ff 100%); */
   /* --background: #bb9c56; */
   /* --background: #d6b056; */
   --foreground: rgb(13, 13, 13);
