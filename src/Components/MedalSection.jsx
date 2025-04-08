@@ -4,18 +4,18 @@ import { useState } from "react";
 
 const CustomBadge = ({ children, className = "" }) => (
   <span
-    className={`inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium ${className}`}
+    className={`inline-flex items-center rounded-full border-[1px] px-2.5 py-0.5 text-xs font-semibold ${className}`}
   >
     {children}
   </span>
 );
 
-const medalColors = {
-  gold: "bg-gradient-to-br from-amber-100/90 to-amber-50/80 text-amber-800 border-amber-200/70 hover:from-amber-200/90 hover:to-amber-100/80 dark:from-amber-700/40 dark:to-amber-600/30 dark:text-amber-100 dark:border-amber-500/40 dark:hover:from-amber-600/50 dark:hover:to-amber-500/40",
+const medalVariants = {
+  gold: "bg-amber-50/90 dark:bg-amber-900/50 text-amber-900 dark:text-amber-50 border-amber-200 dark:border-amber-700 hover:bg-amber-100/80 dark:hover:bg-amber-800/60",
   silver:
-    "bg-gradient-to-br from-slate-100/90 to-slate-50/80 text-slate-800 border-slate-200/70 hover:from-slate-200/90 hover:to-slate-100/80 dark:from-slate-700/40 dark:to-slate-600/30 dark:text-slate-100 dark:border-slate-500/40 dark:hover:from-slate-600/50 dark:hover:to-slate-500/40",
+    "bg-slate-50/90 dark:bg-slate-800/50 text-slate-900 dark:text-slate-50 border-slate-200 dark:border-slate-700 hover:bg-slate-100/80 dark:hover:bg-slate-700/60",
   bronze:
-    "bg-gradient-to-br from-orange-100/90 to-orange-50/80 text-orange-800 border-orange-200/70 hover:from-orange-200/90 hover:to-orange-100/80 dark:from-orange-700/40 dark:to-orange-600/30 dark:text-orange-100 dark:border-orange-500/40 dark:hover:from-orange-600/50 dark:hover:to-orange-500/40",
+    "bg-orange-50/90 dark:bg-orange-900/50 text-orange-900 dark:text-orange-50 border-orange-200 dark:border-orange-700 hover:bg-orange-100/80 dark:hover:bg-orange-800/60",
 };
 
 const medalIcons = {
@@ -30,39 +30,32 @@ export default function MedalSection({
   isActive,
   onToggle,
 }) {
-  const [hoveredMedal, setHoveredMedal] = useState(null);
   const medalsArray = medals || [];
-
   if (medalsArray.length === 0) return null;
 
   return (
     <motion.div
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.5 }}
-      className="mb-4"
+      transition={{ duration: 0.3 }}
+      className="mb-4 w-full"
     >
       <button
         onClick={onToggle}
-        className="flex justify-between items-center w-full px-4 py-3 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all duration-300 group
-        bg-white/20 dark:bg-slate-900/30
-        backdrop-blur-md border border-white/30 dark:border-slate-700/50
-        shadow-md shadow-blue-500/5 dark:shadow-blue-800/5 hover:shadow-lg hover:shadow-blue-500/10 dark:hover:shadow-blue-800/10
-        text-slate-800 dark:text-slate-100
-        hover:bg-white/30 dark:hover:bg-slate-800/40"
+        className="flex w-full items-center justify-between rounded-lg bg-white/80 dark:bg-slate-800/80 p-4 shadow-sm transition-all hover:bg-white dark:hover:bg-slate-700/80"
       >
-        <div className="flex items-center gap-2">
-          <Award className="h-5 w-5 text-blue-500 dark:text-blue-400 group-hover:rotate-12 transition-transform duration-300" />
-          <span className="font-semibold">{title}</span>
-          <CustomBadge className="ml-2 bg-blue-100/50 text-blue-600 border border-blue-200/50 dark:bg-blue-900/30 dark:text-blue-300 dark:border-blue-700/50">
+        <div className="flex items-center gap-3">
+          <Award className="h-5 w-5 text-blue-500 dark:text-blue-400" />
+          <span className="font-medium">{title}</span>
+          <CustomBadge className="bg-blue-100/50 text-blue-800 dark:bg-blue-900/50 dark:text-blue-200">
             {medalsArray.length}
           </CustomBadge>
         </div>
         <motion.div
           animate={{ rotate: isActive ? 180 : 0 }}
-          transition={{ duration: 0.3 }}
+          transition={{ duration: 0.2 }}
         >
-          <ChevronDown size={20} className="text-blue-500 dark:text-blue-400" />
+          <ChevronDown size={18} className="text-blue-500 dark:text-blue-400" />
         </motion.div>
       </button>
 
@@ -72,81 +65,35 @@ export default function MedalSection({
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
-            // transition={{ duration: 0.2 }}
+            transition={{ duration: 0.2, ease: "easeOut" }}
             className="mt-2 overflow-hidden"
           >
-            {/* <div
-              className="grid gap-2 p-3 rounded-xl
-              bg-white/30 dark:bg-slate-900/30
-              backdrop-blur-md border border-white/30 dark:border-slate-700/50
-              shadow-md shadow-blue-500/5 dark:shadow-blue-800/5"
-              > */}
-            <div className="grid gap-2 rounded-lg bg-card p-4 shadow-sm">
+            <div className="grid gap-2 p-3">
               {medalsArray.map((medal, index) => (
                 <motion.div
                   key={medal.id || index}
                   initial={{ opacity: 0, y: -10 }}
                   animate={{ opacity: 1, y: 0 }}
-                  // exit={{ opacity: 0, y: -10 }}
-                  transition={{ duration: 0.2, delay: index * 0.2 }}
-                  className={`flex items-center px-3 py-2 rounded-md cursor-pointer border transition-colors ${
-                    medalColors[medal.type]
+                  transition={{
+                    duration: 0.2,
+                    delay: index * 0.2,
+                    ease: "easeOut",
+                  }}
+                  className={`flex items-center rounded-md border p-3 ${
+                    medalVariants[medal.type]
                   }`}
-                  // onMouseEnter={() => setHoveredMedal(medal)}
-                  // onMouseLeave={() => setHoveredMedal(null)}
-                  whileHover={{ scale: 1.01 }}
                 >
-                  <div className="flex items-center justify-center h-8 w-8 rounded-full bg-white/60 dark:bg-slate-800/60 mr-2 shadow-sm border border-white/40 dark:border-slate-600/40">
+                  <div className="mr-3 flex h-8 w-8 items-center justify-center rounded-full border bg-white dark:bg-slate-900 shadow-sm">
                     {medalIcons[medal.type]}
                   </div>
                   <div className="flex-1">
-                    <h4 className="font-medium text-sm leading-tight">
-                      {medal.competition}
-                    </h4>
-                    <div className="flex items-center text-xs text-gray-600 dark:text-gray-300 mt-0.5">
-                      <Calendar className="h-3 w-3 mr-1" />
+                    <h4 className="text-sm font-medium">{medal.competition}</h4>
+                    <div className="mt-1 flex items-center text-xs text-muted-foreground">
+                      <Calendar className="mr-1 h-3 w-3" />
                       <span>{medal.year}</span>
                     </div>
                   </div>
-                  <CustomBadge
-                    className={`ml-2 border capitalize border-${
-                      medal.type === "gold"
-                        ? "amber"
-                        : medal.type === "silver"
-                        ? "slate"
-                        : "orange"
-                    }-200/50 dark:border-${
-                      medal.type === "gold"
-                        ? "amber"
-                        : medal.type === "silver"
-                        ? "slate"
-                        : "orange"
-                    }-700/40 bg-${
-                      medal.type === "gold"
-                        ? "amber"
-                        : medal.type === "silver"
-                        ? "slate"
-                        : "orange"
-                    }-100/40 dark:bg-${
-                      medal.type === "gold"
-                        ? "amber"
-                        : medal.type === "silver"
-                        ? "slate"
-                        : "orange"
-                    }-900/20 text-${
-                      medal.type === "gold"
-                        ? "amber"
-                        : medal.type === "silver"
-                        ? "slate"
-                        : "orange"
-                    }-700 dark:text-${
-                      medal.type === "gold"
-                        ? "amber"
-                        : medal.type === "silver"
-                        ? "slate"
-                        : "orange"
-                    }-300`}
-                  >
+                  <CustomBadge className="capitalize border-amber-200 dark:border-amber-700 bg-white dark:bg-slate-900">
                     {medal.type}
                   </CustomBadge>
                 </motion.div>
