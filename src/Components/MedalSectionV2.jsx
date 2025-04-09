@@ -101,9 +101,14 @@ export default function MedalSection({
                       <h4 className="text-sm font-medium">
                         {medal.competition}
                       </h4>
-                      <div className="mt-1 flex items-center text-xs text-muted-foreground">
-                        <Calendar className="mr-1 h-3 w-3" />
-                        <span>{medal.year}</span>
+                      <div className="md:mt-1 gap-1 flex flex-col items-left text-xs text-muted-foreground">
+                        <div className="flex">
+                          <span>{medal.location}</span>
+                        </div>
+                        <div className="flex">
+                          <Calendar className="mr-1 h-3 w-3" />
+                          <span>{medal.year}</span>
+                        </div>
                       </div>
                     </div>
                     <CustomBadge

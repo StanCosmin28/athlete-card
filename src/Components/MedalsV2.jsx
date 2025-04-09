@@ -1,6 +1,7 @@
 import { useState } from "react";
 import MedalSectionV2 from "./MedalSectionV2";
 import dummyData from "../Athlete/athlete";
+import { Trophy } from "lucide-react";
 
 export default function Medals() {
   const [activeSection, setActiveSection] = useState("");
@@ -12,7 +13,8 @@ export default function Medals() {
   return (
     <div className="w-full  space-y-6 rounded-lg bg-card p-6 shadow-sm">
       <div className="space-y-1">
-        <h2 className="text-2xl font-semibold tracking-tight">
+        <h2 className="text-2xl font-bold mb-2 flex items-center">
+          <Trophy className="h-6 w-6 mr-3 " />
           Medals/Results
         </h2>
         <p className="text-sm text-muted-foreground">
