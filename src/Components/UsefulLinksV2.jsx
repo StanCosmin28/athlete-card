@@ -1,8 +1,11 @@
 import { motion } from "framer-motion";
-import { usefulLinks } from "../Athlete/usefulLinks";
+// import { usefulLinks } from "../Athlete/usefulLinks";
 import { ExternalLink } from "lucide-react";
+import { useData } from "../Context/DataContext";
 
 export default function UsefulLinks() {
+  const { athleteData } = useData();
+  if (!athleteData) return <p>Loading...</p>;
   return (
     <div className="relative w-full rounded-xl bg-card p-6 shadow-sm">
       <div className="space-y-6">
@@ -14,7 +17,7 @@ export default function UsefulLinks() {
         </div>
 
         <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
-          {usefulLinks.map((link, index) => (
+          {athleteData.useful_links.map((link, index) => (
             <motion.a
               key={index}
               href={link.url}

@@ -11,9 +11,14 @@
 //   );
 // }
 import { motion } from "framer-motion";
-import stanc from "../assets/profile-me.png";
+import { useData } from "../Context/DataContext";
+// import stanc from "../assets/profile-me.png";
 
 export default function AthleteHeader() {
+  const { athleteData } = useData();
+
+  if (!athleteData) return <p>Loading...</p>;
+
   return (
     <motion.div
       initial={{ opacity: 0, y: 20 }}
@@ -29,8 +34,8 @@ export default function AthleteHeader() {
       >
         <div className="absolute inset-0 rounded-full bg-gradient-to-br from-blue-400/20 to-purple-400/20 dark:from-blue-600/20 dark:to-purple-600/40 blur-md group-hover:blur-lg transition-all duration-500"></div>{" "}
         <img
-          src={stanc}
-          alt="Stan Cosmin"
+          src={athleteData.profile_image}
+          alt={athleteData.first_name}
           className="relative z-10 w-32 h-32 rounded-full border-4 border-white/80 dark:border-slate-800/80 shadow-xl object-cover transition-transform duration-500 group-hover:scale-105"
         />
       </motion.div>
@@ -42,10 +47,10 @@ export default function AthleteHeader() {
         className="text-center space-y-2 relative z-10"
       >
         <h2 className="text-4xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 dark:from-blue-400 dark:to-purple-400 bg-clip-text text-transparent">
-          Stan Cosmin
+          {`${athleteData.first_name} ${athleteData.last_name}`}
         </h2>
         <p className="text-lg font-medium text-muted-foreground">
-          Fencing Sabre
+          {athleteData.sport}
         </p>
 
         {/* Animated underline */}

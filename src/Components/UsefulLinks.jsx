@@ -1,8 +1,11 @@
 import { motion } from "framer-motion";
-import { usefulLinks } from "../Athlete/usefulLinks"; // Adjust the path as needed
+// import { usefulLinks } from "../Athlete/usefulLinks"; // Adjust the path as needed
 import { ExternalLink } from "lucide-react"; // Optional - for link icon
-
+import { useData } from "../Context/DataContext";
 export default function UsefulLinks() {
+  const { athleteData } = useData();
+
+  if (!athleteData) return <p>Loading...</p>;
   return (
     <div
       className="flex flex-col justify-center p-6 rounded-2xl relative overflow-hidden
@@ -23,7 +26,7 @@ export default function UsefulLinks() {
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-          {usefulLinks.map((link, index) => (
+          {athleteData.useful_links.map((link, index) => (
             <motion.a
               key={index}
               href={link.url}

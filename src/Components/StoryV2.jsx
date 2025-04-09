@@ -1,10 +1,14 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ChevronDown, ChevronUp, BookOpen } from "lucide-react";
-import story from "../Athlete/athleteStory";
+import { useData } from "../Context/DataContext";
+// import story from "../Athlete/athleteStory";
 
 export default function StoryV2() {
+  const { athleteData } = useData();
   const [isExpanded, setIsExpanded] = useState(false);
+
+  if (!athleteData) return <p>Loading...</p>;
 
   return (
     <div className="relative w-full rounded-xl  bg-card p-6 shadow-sm">
@@ -34,7 +38,9 @@ export default function StoryV2() {
                 transition={{ duration: 0.3, ease: [0.04, 0.62, 0.23, 0.98] }}
                 className="relative overflow-hidden"
               >
-                <p className="text-foreground/90">{story.content}</p>
+                <p className="text-foreground/90">
+                  {athleteData.story.content}
+                </p>
 
                 {!isExpanded && (
                   <div className="pointer-events-none absolute bottom-0 left-0 right-0 h-16 bg-gradient-to-t from-background to-transparent"></div>

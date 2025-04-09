@@ -1,10 +1,14 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ChevronDown, ChevronUp, BookOpen } from "lucide-react";
-import story from "../Athlete/athleteStory";
+// import story from "../Athlete/athleteStory";
+import { useData } from "../Context/DataContext";
 
 export default function StorySection() {
+  const { athleteData } = useData();
   const [isExpanded, setIsExpanded] = useState(false);
+
+  if (!athleteData) return <p>Loading...</p>;
 
   return (
     <div
@@ -47,7 +51,7 @@ export default function StorySection() {
                 className="overflow-hidden relative"
               >
                 <p className="text-slate-700 dark:text-slate-300">
-                  {story.content}
+                  {athleteData.story.content}
                 </p>
 
                 {/* Fade overlay - only visible when collapsed */}

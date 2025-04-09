@@ -1,12 +1,15 @@
 import { motion } from "framer-motion";
-import sponsors from "../Athlete/sponsors";
+// import sponsors from "../Athlete/sponsors";
 import { Award, ChevronLeft, ChevronRight } from "lucide-react";
 import { useState, useRef, useEffect } from "react";
-
+import { useData } from "../Context/DataContext";
 export default function Sponsors() {
+  const { athleteData } = useData();
   const scrollRef = useRef(null);
   const [scrollPosition, setScrollPosition] = useState(0);
   const [maxScroll, setMaxScroll] = useState(0);
+
+  if (!athleteData) return <p>Loading...</p>;
 
   const handleScroll = () => {
     if (scrollRef.current) {
@@ -106,7 +109,7 @@ export default function Sponsors() {
             onScroll={handleScroll}
             className="flex overflow-x-auto scrollbar-hide gap-4 py-3 px-1 scroll-smooth"
           >
-            {sponsors.map((sponsor, index) => (
+            {athleteData.sponsors.map((sponsor, index) => (
               <motion.div
                 key={sponsor.id}
                 initial={{ opacity: 0, y: 10 }}
