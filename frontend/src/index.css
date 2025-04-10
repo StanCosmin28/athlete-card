@@ -1,1 +1,10 @@
 @import "tailwindcss";
+
+.border-styleV2 {
+  background-color: rgb(40, 37, 37, 0.5);
+  border: 1px solid rgba(245, 245, 245, 0.3);
+}
+.border-styleV2:hover {
+  background-color: rgba(245, 245, 245, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+}

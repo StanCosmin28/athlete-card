@@ -115,18 +115,16 @@ export default function Sponsors() {
                 initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.3, delay: index * 0.05 }}
-                whileHover={{ y: -3, scale: 1.03 }}
-                className="flex-shrink-0 group"
+                className="flex-shrink-0" // Removed group class
               >
                 <div
-                  className="flex flex-col items-center justify-center w-28 h-28 rounded-lg overflow-hidden
-                    bg-white/40 dark:bg-slate-800/40 backdrop-blur-md
-                    border border-white/40 dark:border-slate-700/50
-                    shadow-md shadow-blue-500/5 dark:shadow-blue-800/5
-                    hover:shadow-lg hover:shadow-blue-500/10 dark:hover:shadow-blue-800/10
-                    transition-all duration-300 relative"
+                  className="flex flex-col items-center justify-center w-28 h-32 rounded-lg overflow-hidden
+        bg-white/40 dark:bg-slate-800/40 backdrop-blur-md
+        border border-white/40 dark:border-slate-700/50
+        shadow-md shadow-blue-500/5 dark:shadow-blue-800/5
+        transition-all duration-300 relative"
                 >
-                  <div className="w-full h-full flex items-center justify-center p-2">
+                  <div className="w-full h-20 flex items-center justify-center p-2">
                     <div
                       className="w-full h-full bg-contain bg-center bg-no-repeat"
                       style={{
@@ -135,13 +133,8 @@ export default function Sponsors() {
                     />
                   </div>
 
-                  {/* Name badge - only visible on hover */}
-                  <div
-                    className="absolute bottom-0 w-full backdrop-blur-md
-                    bg-black/70 dark:bg-black/80
-                    py-1.5 px-2
-                    transform translate-y-full group-hover:translate-y-0 transition-transform duration-300 ease-in-out"
-                  >
+                  {/* Name badge - always visible */}
+                  <div className="w-full bg-black/70 dark:bg-black/80 py-1.5 px-2">
                     <p className="text-white text-xs font-medium text-center truncate">
                       {sponsor.name}
                     </p>

@@ -23,7 +23,7 @@ export default function UsefulLinks() {
               href={link.url}
               target="_blank"
               rel="noopener noreferrer"
-              className="group relative overflow-hidden rounded-lg border bg-background p-4 shadow-sm transition-colors hover:bg-accent hover:text-accent-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+              className="border-styleV2 group relative overflow-hidden rounded-lg bg-background p-4 shadow-sm transition-colors hover:bg-accent hover:text-accent-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
               whileHover={{ y: -2 }}
               whileTap={{ scale: 0.98 }}
             >

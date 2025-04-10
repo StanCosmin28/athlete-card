@@ -51,7 +51,8 @@ export default function StoryV2() {
 
           <button
             onClick={() => setIsExpanded(!isExpanded)}
-            className="flex w-full items-center justify-center border-t bg-muted/50 p-3 text-sm font-medium text-foreground transition-colors hover:bg-muted focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+            className="cursor-pointer flex w-full items-center justify-center border-t bg-muted/50 p-3 text-sm font-medium text-foreground transition-colors hover:bg-muted focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+            style={{ borderTop: "1px solid rgba(245, 245, 245, 0.3)" }}
           >
             {isExpanded ? (
               <>

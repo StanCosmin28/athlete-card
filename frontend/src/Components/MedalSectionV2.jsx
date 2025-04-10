@@ -1,5 +1,6 @@
 import { motion, AnimatePresence } from "framer-motion";
 import { ChevronDown, Award, Calendar, Trophy } from "lucide-react";
+import "../index.css";
 import { useState } from "react";
 
 const CustomBadge = ({ children, className = "" }) => (
@@ -55,7 +56,7 @@ export default function MedalSection({
     >
       <button
         onClick={onToggle}
-        className="flex w-full items-center justify-between rounded-lg border bg-card p-4 text-card-foreground shadow-sm transition-all hover:bg-accent hover:text-accent-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+        className="cursor-pointer border-styleV2 flex w-full items-center justify-between rounded-lg bg-card p-4 text-card-foreground shadow-sm transition-all hover:bg-accent hover:text-accent-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
       >
         <div className="flex items-center gap-3">
           <Award className="h-5 w-5" />
