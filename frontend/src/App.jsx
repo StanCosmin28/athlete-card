@@ -20,6 +20,7 @@ import UsefulLinksV2 from "./Components/UsefulLinksV2";
 import SponsorsV2 from "./Components/SponsorsV2";
 import FixedBackgroundV2 from "./Components/FixedBackgroundV2";
 import Copyrights from "./Components/Copyrights";
+import DockLinks from "./Components/DockLinks";
 // import InfinitePhotos from "./Components/InfinitePhotos";
 // import GlassmorphismWrapper from "./Components/GlassmorphismWrapper";
 // import MedalPhysicsWall from "./Components/MedalPhysicsWall";
@@ -99,6 +100,9 @@ function App() {
           <ImageTest />
         </div>
         <Copyrights />
+        <div className="felx mx-auto">
+          <DockLinks />
+        </div>
       </DataProvider>
     </>
   );
