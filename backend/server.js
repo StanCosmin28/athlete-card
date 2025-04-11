@@ -58,5 +58,5 @@ app.get("/test3", (req, res) => {
 });
 
 app.listen(PORT, () => {
-  console.log(`🚀 Server running on port http://localhost:${PORT}`);
+  console.log(`🚀 Server running on port http://localhost:3000/${PORT}`);
 });
