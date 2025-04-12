@@ -1,5 +1,4 @@
-// import stanc from "./assets/profile-me.png";
-// import viteLogo from "/vite.svg";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { DataProvider } from "./Context/DataContext";
 import ThemeToggle from "./Components/ThemeToggle";
 import AthleteHeader from "./Components/Header";
@@ -9,9 +8,8 @@ import Medals from "./Components/Medals";
 import Sponsors from "./Components/Sponsors";
 import UsefulLinks from "./Components/UsefulLinks";
 import Story from "./Components/Story";
-import Highlights from "./Components/Highlights";
-// import MedalsPitComponent from "./Components/MedalPitComponent";
-import MedalWall from "./Components/MedalWall";
+// import Highlights from "./Components/Highlights";
+// import MedalWall from "./Components/MedalWall";
 import ImageTest from "./Components/ImageTest";
 import FixedBackground from "./Components/FixedBackground";
 import MedalsV2 from "./Components/MedalsV2";
@@ -21,90 +19,76 @@ import SponsorsV2 from "./Components/SponsorsV2";
 import FixedBackgroundV2 from "./Components/FixedBackgroundV2";
 import Copyrights from "./Components/Copyrights";
 import DockLinks from "./Components/DockLinks";
-// import InfinitePhotos from "./Components/InfinitePhotos";
-// import GlassmorphismWrapper from "./Components/GlassmorphismWrapper";
-// import MedalPhysicsWall from "./Components/MedalPhysicsWall";
 import { useState } from "react";
+// import AthleteProfile from "./Components/AthleteProfile"; // Creează această componentă nouă
+
 function App() {
   const [simple, setIsSimple] = useState(false);
   const [bg, setBg] = useState(false);
 
   function handleClick() {
-    console.log("changed!");
     setIsSimple(!simple);
   }
+
   function handleClickV2() {
     setBg(!bg);
-    console.log("changed!");
   }
+
   return (
-    <>
-      <DataProvider>
-        {bg ? <FixedBackgroundV2 /> : <FixedBackground />}
-        <ThemeToggle />
-        <button
-          onClick={handleClick}
-          className="z-100 fixed top-4 left-4 p-2 rounded-full bg-gray-200 dark:bg-gray-800 text-gray-800 dark:text-gray-200"
-        >
-          T
-        </button>
-        <button
-          onClick={handleClickV2}
-          className="z-100 fixed top-4 left-12 p-2 rounded-full bg-gray-200 dark:bg-gray-800 text-gray-800 dark:text-gray-200"
-        >
-          Bg
-        </button>
-        <div className="max-w-7xl mx-auto px-4 py-8">
-          {/* <h1 className="flex justify-center">Athelte App</h1> */}
-          <AthleteHeader />
-        </div>
-        <div className="max-w-7xl mx-auto px-4 py-4">
-          {/* <GlassmorphismWrapper> */}
-          <About />
-          {/* <MedalWall /> */}
-          {/* </GlassmorphismWrapper> */}
-        </div>
-        <div className="max-w-7xl mx-auto px-4 py-4 overflow-hidden">
-          {/* <InfinitePhotos /> */}
-        </div>
-        <div className="max-w-7xl mx-auto px-4 py-4">
-          {simple ? <MedalsV2 /> : <Medals />}
-          {/* <Medals />
-        <MedalsV2 /> */}
-        </div>
-        <div className="max-w-7xl mx-auto px-4 py-4">
-          {simple ? <SponsorsV2 /> : <Sponsors />}
-          {/* <Sponsors />
-        <SponsorsV2 /> */}
-        </div>
-        <div className="max-w-7xl mx-auto px-4 py-4">
-          {simple ? <UsefulLinksV2 /> : <UsefulLinks />}
-          {/* <UsefulLinks />
-        <UsefulLinksV2 /> */}
-        </div>
-        <div className="max-w-7xl mx-auto px-4 py-4">
-          {simple ? <StoryV2 /> : <Story />}
-          {/* <Story />
-        <StoryV2 /> */}
-        </div>
-        {/* <div className="max-w-7xl mx-auto px-4 py-4">
-        <Highlights />
-      </div> */}
-        {/* <div className="max-w-7xl max-h-[550px] mx-auto px-4 py-4">
-        <h2 className="text-3xl font-bold">Medals</h2>
-        <MedalsPitComponent />
-        <MedalWall />
-        <MedalPhysicsWall />
-      </div> */}
-        <div className="max-w-7xl mx-auto px-4 py-4">
-          <ImageTest />
-        </div>
-        <Copyrights />
-        <div className="felx mx-auto">
-          <DockLinks />
-        </div>
-      </DataProvider>
-    </>
+    <Router>
+      <Routes>
+        {/* Ruta pentru homepage (fără username) */}
+        <Route
+          path="/:username"
+          element={
+            <>
+              <DataProvider>
+                {bg ? <FixedBackgroundV2 /> : <FixedBackground />}
+                <ThemeToggle />
+                <button
+                  onClick={handleClick}
+                  className="z-100 fixed top-4 left-4 p-2 rounded-full bg-gray-200 dark:bg-gray-800 text-gray-800 dark:text-gray-200"
+                >
+                  Theme
+                </button>
+                <button
+                  onClick={handleClickV2}
+                  className="z-100 fixed top-4 left-22 p-2 rounded-full bg-gray-200 dark:bg-gray-800 text-gray-800 dark:text-gray-200"
+                >
+                  Bg
+                </button>
+                <div className="max-w-7xl mx-auto px-4 py-8">
+                  <AthleteHeader />
+                </div>
+                <div className="max-w-7xl mx-auto px-4 py-4">
+                  <About />
+                </div>
+                <div className="max-w-7xl mx-auto px-4 py-4">
+                  {simple ? <MedalsV2 /> : <Medals />}
+                </div>
+                <div className="max-w-7xl mx-auto px-4 py-4">
+                  {simple ? <SponsorsV2 /> : <Sponsors />}
+                </div>
+                <div className="max-w-7xl mx-auto px-4 py-4">
+                  {simple ? <UsefulLinksV2 /> : <UsefulLinks />}
+                </div>
+                <div className="max-w-7xl mx-auto px-4 py-4">
+                  {simple ? <StoryV2 /> : <Story />}
+                </div>
+                {/* <div className="max-w-7xl mx-auto px-4 py-4">
+                  <ImageTest />
+                </div> */}
+                <Copyrights />
+                {/* <DockLinks /> */}
+              </DataProvider>
+            </>
+          }
+        />
+
+        {/* Ruta pentru profilul unui athlete (ex: /stancdev) */}
+        {/* <Route path="/:username" element={<AthleteProfile />} /> */}
+      </Routes>
+    </Router>
   );
 }
 

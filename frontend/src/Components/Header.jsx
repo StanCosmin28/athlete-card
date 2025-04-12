@@ -16,7 +16,6 @@ import { useData } from "../Context/DataContext";
 
 export default function AthleteHeader() {
   const { athleteData } = useData();
-
   if (!athleteData) return <p>Loading...</p>;
 
   return (
@@ -47,7 +46,8 @@ export default function AthleteHeader() {
         className="text-center space-y-2 relative z-10"
       >
         <h2 className="text-4xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 dark:from-blue-400 dark:to-purple-400 bg-clip-text text-transparent">
-          {`${athleteData.first_name} ${athleteData.last_name}`}
+          {/* {`${athleteData.first_name} ${athleteData.last_name}`} */}
+          {athleteData.username}
         </h2>
         <p className="text-lg font-medium text-muted-foreground">
           {athleteData.sport}
