@@ -38,25 +38,46 @@
 // //   app.listen(PORT, () => console.log(`🚀 Server running on port ${PORT}`));
 // // });
 
+/////
+// const path = require("path");
+// const cors = require("cors");
+// const corsOptions = require("./config/corsOptions");
+// const { logger } = require("./middleware/logEvents");
+// const errorHandler = require("./middleware/errorHandler");
+// const verifyJWT = require("./middleware/verifyJWT");
+// const cookieParser = require("cookie-parser");
+// const credentials = require("./middleware/credentials");
+// const mongoose = require("mongoose");
+// const connectDB = require("./config/dbConn");
+// const PORT = process.env.PORT || 3000;
+/////
+
 const express = require("express");
+const connectDB = require("./config/dbConn");
+const mongoose = require("mongoose");
+const cors = require("cors");
 require("dotenv").config();
 const app = express();
 const PORT = 3000;
 
-app.get("/", (req, res) => {
-  res.send({ data: "gatUserData()" });
-});
+connectDB();
+app.use(express.json());
 
-app.get("/test1", (req, res) => {
-  res.send({ test: "test - get all users" });
-});
-app.get("/test2", (req, res) => {
-  res.send({ test: "test - get all users with email" });
-});
-app.get("/test3", (req, res) => {
-  res.send({ test: "test - get all olympians" });
-});
+app.use(
+  cors({
+    origin: "http://localhost:5173",
+    credentials: true,
+  })
+);
 
-app.listen(PORT, () => {
-  console.log(`🚀 Server running on port http://localhost:3000/${PORT}`);
+app.use("/register", require("./routes/register"));
+//athletes api
+app.use("/", require("./routes/api/athletes"));
+
+mongoose.connection.once("open", () => {
+  console.log("✅ Connected to MongoDB");
+  app.listen(PORT, () => console.log(`🚀 Server running on port ${PORT}`));
 });
+// app.listen(PORT, () => {
+//   console.log(`🚀 Server running on port http://localhost:${PORT}/`);
+// });

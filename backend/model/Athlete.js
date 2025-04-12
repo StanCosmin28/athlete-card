@@ -1,6 +1,8 @@
-import mongoose from "mongoose";
+// import mongoose from "mongoose";
+const mongoose = require("mongoose");
 
 // const mongoose = require("mongoose");
+// const Schema = mongoose.Schema;
 
 const athleteSchema = new mongoose.Schema({
   username: {
@@ -97,5 +99,6 @@ const athleteSchema = new mongoose.Schema({
   ],
 });
 
-const Athlete = mongoose.model("Athlete", athleteSchema);
-export default Athlete;
+// const Athlete = mongoose.model("Athlete", athleteSchema);
+// export default Athlete;
+module.exports = mongoose.model("Athlete", athleteSchema);
