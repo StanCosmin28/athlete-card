@@ -40,7 +40,7 @@ function App() {
   return (
     <>
       <DataProvider>
-        {bg ? <FixedBackground /> : <FixedBackgroundV2 />}
+        {bg ? <FixedBackgroundV2 /> : <FixedBackground />}
         <ThemeToggle />
         <button
           onClick={handleClick}
@@ -68,22 +68,22 @@ function App() {
           {/* <InfinitePhotos /> */}
         </div>
         <div className="max-w-7xl mx-auto px-4 py-4">
-          {simple ? <Medals /> : <MedalsV2 />}
+          {simple ? <MedalsV2 /> : <Medals />}
           {/* <Medals />
         <MedalsV2 /> */}
         </div>
         <div className="max-w-7xl mx-auto px-4 py-4">
-          {simple ? <Sponsors /> : <SponsorsV2 />}
+          {simple ? <SponsorsV2 /> : <Sponsors />}
           {/* <Sponsors />
         <SponsorsV2 /> */}
         </div>
         <div className="max-w-7xl mx-auto px-4 py-4">
-          {simple ? <UsefulLinks /> : <UsefulLinksV2 />}
+          {simple ? <UsefulLinksV2 /> : <UsefulLinks />}
           {/* <UsefulLinks />
         <UsefulLinksV2 /> */}
         </div>
         <div className="max-w-7xl mx-auto px-4 py-4">
-          {simple ? <Story /> : <StoryV2 />}
+          {simple ? <StoryV2 /> : <Story />}
           {/* <Story />
         <StoryV2 /> */}
         </div>

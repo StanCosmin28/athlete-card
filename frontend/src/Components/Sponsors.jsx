@@ -9,8 +9,6 @@ export default function Sponsors() {
   const [scrollPosition, setScrollPosition] = useState(0);
   const [maxScroll, setMaxScroll] = useState(0);
 
-  if (!athleteData) return <p>Loading...</p>;
-
   const handleScroll = () => {
     if (scrollRef.current) {
       const current = scrollRef.current.scrollLeft;
@@ -28,6 +26,8 @@ export default function Sponsors() {
       );
     }
   }, []);
+
+  if (!athleteData) return <p>Loading...</p>;
 
   const scrollLeft = () => {
     if (scrollRef.current) {
