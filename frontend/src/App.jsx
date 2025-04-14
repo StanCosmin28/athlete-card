@@ -58,7 +58,7 @@ function App() {
                 >
                   Bg
                 </button>
-                <div className="max-w-7xl mx-auto px-4 py-8">
+                <div className="max-w-7xl mx-auto px-4 pb-0 py-8">
                   <AthleteHeader />
                   <AthleteBadge />
                 </div>
