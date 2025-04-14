@@ -2,6 +2,7 @@
   "_id": "athlete_001",
   "first_name": "Stan",
   "last_name": "Cosmin",
+  "username": "Stan Cosmin",
   "nickname": "stanc",
   "email": "stan.cosmin@example.com",
   "date_of_birth": "2000-08-14",

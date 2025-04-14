@@ -20,6 +20,7 @@ import FixedBackgroundV2 from "./Components/FixedBackgroundV2";
 import Copyrights from "./Components/Copyrights";
 import DockLinks from "./Components/DockLinks";
 import { useState } from "react";
+import AthleteBadge from "./Components/AthleteBadge";
 // import AthleteProfile from "./Components/AthleteProfile"; // Creează această componentă nouă
 
 function App() {
@@ -59,6 +60,7 @@ function App() {
                 </button>
                 <div className="max-w-7xl mx-auto px-4 py-8">
                   <AthleteHeader />
+                  <AthleteBadge />
                 </div>
                 <div className="max-w-7xl mx-auto px-4 py-4">
                   <About />
