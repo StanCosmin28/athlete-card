@@ -35,6 +35,7 @@ export default function Lanyard({
     <div className="relative z-0 w-full h-[600px] flex justify-center items-center transform scale-100 origin-center">
       <Canvas
         camera={{ position: position, fov: fov }}
+        style={{ touchAction: "none" }}
         gl={{ alpha: transparent }}
         onCreated={({ gl }) =>
           gl.setClearColor(new THREE.Color(0x000000), transparent ? 0 : 1)
@@ -194,7 +195,7 @@ function Band({ maxSpeed = 50, minSpeed = 0 }) {
           <BallCollider args={[0.1]} />
         </RigidBody>
         <RigidBody
-          position={[2, 0, 0]}
+          position={[2, -1.2, -0.05]} // Mută offsetul aici
           ref={card}
           {...segmentProps}
           type={dragged ? "kinematicPosition" : "dynamic"}
@@ -202,7 +203,8 @@ function Band({ maxSpeed = 50, minSpeed = 0 }) {
           <CuboidCollider args={[0.8, 1.125, 0.01]} />
           <group
             scale={1.5} // <== aici am făcut badge-ul mai mic
-            position={[0, -1.2, -0.05]}
+            // position={[0, -1.2, -0.05]}
+            position={[0, -0.3, 0]}
             onPointerOver={() => hover(true)}
             onPointerOut={() => hover(false)}
             onPointerUp={(e) => (
@@ -245,7 +247,7 @@ function Band({ maxSpeed = 50, minSpeed = 0 }) {
           useMap
           map={texture}
           repeat={[-4, 1]}
-          lineWidth={1}
+          lineWidth={0.6}
         />
       </mesh>
     </>
