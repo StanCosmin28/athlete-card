@@ -71,6 +71,7 @@ app.use(
 );
 
 app.use("/register", require("./routes/register"));
+app.use("/login", require("./routes/login"));
 //athletes api
 app.use("/", require("./routes/api/athletes"));
 

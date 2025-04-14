@@ -20,6 +20,11 @@ const athleteSchema = new mongoose.Schema({
     unique: true,
   },
   refreshToken: String,
+  roles: {
+    FREE: { type: Number, default: 2001 },
+    PRO: Number,
+    ELITE: Number,
+  },
   first_name: String,
   last_name: String,
   date_of_birth: Date,

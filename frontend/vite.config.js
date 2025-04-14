@@ -7,4 +7,5 @@ export default defineConfig({
   base: "/athlete-card/",
   // base: "/",
   plugins: [tailwindcss(), react()],
+  assetsInclude: ["**/*.glb"],
 });
