@@ -32,7 +32,7 @@ export default function Lanyard({
   transparent = true,
 }) {
   return (
-    <div className="relative z-0 w-full h-[600px] flex justify-center items-center transform scale-100 origin-center">
+    <div className="relative z-0 w-full h-[500px] flex justify-center items-center transform scale-100 origin-center">
       <Canvas
         camera={{ position: position, fov: fov }}
         style={{ touchAction: "none" }}
@@ -247,7 +247,7 @@ function Band({ maxSpeed = 50, minSpeed = 0 }) {
           useMap
           map={texture}
           repeat={[-4, 1]}
-          lineWidth={0.6}
+          lineWidth={isSmall ? 0.6 : 0.4}
         />
       </mesh>
     </>
