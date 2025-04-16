@@ -93,7 +93,7 @@ export default function MedalSection({
                         <span>{medal.location}</span>
                       </div>
                       <div className="flex">
-                        <Calendar className="mr-1 h-3 w-3" />
+                        <Calendar className="mr-1 h-3 w-3 mt-[2px]" />
                         <span>{medal.year}</span>
                       </div>
                     </div>

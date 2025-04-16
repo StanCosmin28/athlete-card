@@ -4,10 +4,8 @@ const Athlete = require("../model/Athlete.js");
 const bcrypt = require("bcrypt");
 
 const handleNewAthlete = async (req, res) => {
-  console.log("here", req.body);
   const { username, email, password } = req.body;
 
-  console.log(req.body);
   if (!username || !email || !password) {
     return res
       .status(400)
