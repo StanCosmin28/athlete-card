@@ -10,7 +10,7 @@ import UsefulLinks from "./Components/UsefulLinks";
 import Story from "./Components/Story";
 // import Highlights from "./Components/Highlights";
 // import MedalWall from "./Components/MedalWall";
-import ImageTest from "./Components/ImageTest";
+// import ImageTest from "./Components/ImageTest";
 import FixedBackground from "./Components/FixedBackground";
 import MedalsV2 from "./Components/MedalsV2";
 import StoryV2 from "./Components/StoryV2";
@@ -18,9 +18,11 @@ import UsefulLinksV2 from "./Components/UsefulLinksV2";
 import SponsorsV2 from "./Components/SponsorsV2";
 import FixedBackgroundV2 from "./Components/FixedBackgroundV2";
 import Copyrights from "./Components/Copyrights";
-import DockLinks from "./Components/DockLinks";
+// import DockLinks from "./Components/DockLinks";
 import { useState } from "react";
 import AthleteBadge from "./Components/AthleteBadge";
+import WaitlistPage from "./Components/Waitlist";
+
 // import AthleteProfile from "./Components/AthleteProfile"; // Creează această componentă nouă
 
 function App() {
@@ -38,6 +40,15 @@ function App() {
   return (
     <Router>
       <Routes>
+        <Route
+          path="/athlete-card/waitlist"
+          element={
+            <>
+              <WaitlistPage />
+              <FixedBackground />
+            </>
+          }
+        ></Route>
         {/* Ruta pentru homepage (fără username) */}
         <Route
           path="/:username"

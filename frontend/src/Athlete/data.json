@@ -100,6 +100,18 @@
       "name": "brandB",
       "logo": "src/assets/logo.png",
       "url": "https://brandB.com"
+    },
+    {
+      "id": 3,
+      "name": "brandC",
+      "logo": "src/assets/logo.png",
+      "url": "https://brandB.com"
+    },
+    {
+      "id": 4,
+      "name": "brandD",
+      "logo": "src/assets/logo.png",
+      "url": "https://brandB.com"
     }
   ],
   "useful_links": [
