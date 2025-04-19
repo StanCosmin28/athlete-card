@@ -31,7 +31,8 @@ export default function AthleteHeader() {
         transition={{ type: "spring", stiffness: 300 }}
         className="relative mb-6 mt-4"
       >
-        <div className="absolute inset-0 rounded-full bg-gradient-to-br from-blue-400/20 to-purple-400/20 dark:from-blue-600/20 dark:to-purple-600/40 blur-md group-hover:blur-lg transition-all duration-500"></div>{" "}
+        <div className="absolute inset-0 rounded-full bg-gradient-to-br from-blue-400/20 to-blue-600/30 blur-md group-hover:blur-lg transition-all duration-500 shadow-[0_0_3px_3px_rgba(59,130,246,0.1)]"></div>
+        {/* <div className="absolute inset-0 rounded-full bg-gradient-to-br from-blue-400/20 to-purple-400/20 dark:from-blue-600/20 dark:to-purple-600/40 blur-md group-hover:blur-lg transition-all duration-500"></div>{" "} */}
         <img
           src={athleteData.profile_image}
           alt={athleteData.first_name}
@@ -45,13 +46,23 @@ export default function AthleteHeader() {
         transition={{ type: "spring", stiffness: 400 }}
         className="text-center space-y-2 relative z-10"
       >
-        <h2 className="text-4xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 dark:from-blue-400 dark:to-purple-400 bg-clip-text text-transparent">
-          {/* {`${athleteData.first_name} ${athleteData.last_name}`} */}
+        {/* <h2 className="text-4xl font-bold text-white">
+          {athleteData.username}
+          {athleteData.sport && (
+            <span className="block mt-2 text-xl font-medium text-slate-400">
+              {athleteData.sport}
+            </span>
+          )}
+        </h2> */}
+        {/* <div className="flex items-baseline gap-3"> */}
+        <h2 className="text-4xl font-bold text-white">
           {athleteData.username}
         </h2>
-        <p className="text-lg font-medium text-muted-foreground">
+        <span className="text-sm font-semibold bg-slate-700/50 text-slate-300 px-3 py-1 rounded-full border border-slate-600">
           {athleteData.sport}
-        </p>
+        </span>
+
+        {/* </div> */}
 
         {/* Animated underline */}
         <motion.div
