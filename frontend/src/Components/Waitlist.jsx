@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Mail, User, Activity, ArrowRight, ExternalLink } from "lucide-react";
 import { useNavigate } from "react-router-dom";
+import Copyrights from "./Copyrights";
 export default function WaitlistPage() {
   const [formData, setFormData] = useState({
     fullname: "",
@@ -42,20 +43,26 @@ export default function WaitlistPage() {
   return (
     <>
       {waitlisted ? (
-        <div className="min-h-screen w-full flex items-center justify-center p-4 flex-col">
-          <p>thanks for register {formData.fullname}</p>
+        <div className="min-h-screen w-full flex items-center justify-center p-4  flex-col">
+          <p className="text-center text-2xl ">
+            Thank You, {formData.fullname}!
+          </p>
+          <p className="opacity-75">You just got waitlisted!</p>
           <a
             href="http://localhost:5173/athlete-card/"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center text-slate-300 hover:text-white transition-colors"
+            className="inline-flex items-center text-slate-300 hover:text-white transition-colors opacity-50"
           >
             Go to Home Page <ExternalLink className="ml-2 h-4 w-4" />
           </a>
         </div>
       ) : (
-        <div className="min-h-screen w-full flex items-center justify-center p-4 ">
-          <div className="glass-morphism max-w-2xl w-full p-8">
+        <div className="min-h-screen w-full flex items-center justify-center px-4 flex-col ">
+          <div
+            className="glass-morphism max-w-2xl w-full"
+            style={{ padding: "32px 32px 0 32px" }}
+          >
             {/* Header Section */}
             <div className="mb-10 text-center">
               <h1 className="text-4xl font-bold text-white mb-3">
@@ -199,7 +206,7 @@ export default function WaitlistPage() {
               </div>
             )}
 
-            <div className="mt-8 pt-6 border-t border-slate-700/50 text-center">
+            {/* <div className="mt-8 pt-6 border-t border-slate-700/50 text-center mb-4">
               <a
                 href="http://localhost:5173/athlete-card/"
                 target="_blank"
@@ -208,10 +215,16 @@ export default function WaitlistPage() {
               >
                 Become an Ambassador <ExternalLink className="ml-2 h-4 w-4" />
               </a>
+            </div> */}
+            <div className="mt-4">
+              <Copyrights />
             </div>
           </div>
         </div>
       )}
+      {/* <div className="absolute w-full bottom-0 left-0"> */}
+      {/* <Copyrights /> */}
+      {/* </div> */}
     </>
   );
 }
