@@ -4,6 +4,14 @@ const mongoose = require("mongoose");
 // const mongoose = require("mongoose");
 // const Schema = mongoose.Schema;
 
+const competitionSchema = new mongoose.Schema({
+  id: { type: String, required: true },
+  competition: { type: String, required: true },
+  type: { type: String, required: true },
+  year: { type: String, required: true },
+  location: { type: String, required: true },
+});
+
 const athleteSchema = new mongoose.Schema({
   username: {
     type: String,
@@ -53,33 +61,9 @@ const athleteSchema = new mongoose.Schema({
     content: String,
   },
   competitions: {
-    international: [
-      {
-        id: String,
-        competition: String,
-        type: String,
-        year: String,
-        location: String,
-      },
-    ],
-    national: [
-      {
-        id: String,
-        competition: String,
-        type: String,
-        year: String,
-        location: String,
-      },
-    ],
-    regional: [
-      {
-        id: String,
-        competition: String,
-        type: String,
-        year: String,
-        location: String,
-      },
-    ],
+    international: [competitionSchema],
+    national: [competitionSchema],
+    regional: [competitionSchema],
   },
   gallery: [
     {
