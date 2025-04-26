@@ -56,6 +56,7 @@ const express = require("express");
 const connectDB = require("./config/dbConn");
 const mongoose = require("mongoose");
 const cors = require("cors");
+const verifyJWT = require("./middleware/verifyJWT");
 require("dotenv").config();
 const app = express();
 const PORT = 3000;
@@ -72,10 +73,12 @@ app.use(
 
 app.use("/register", require("./routes/register"));
 app.use("/login", require("./routes/login"));
-app.use("/logout", require("./routes/logout")); //handle also in FE whe the AccessToken Expires (=>403) call /refresh route to get a new one without the login infos
-app.use("/waitlist", require("./routes/waitlist")); //handle also in FE whe the AccessToken Expires (=>403) call /refresh route to get a new one without the login infos
+app.use("/logout", require("./routes/logout"));
 //athletes api
 app.use("/", require("./routes/api/athletes"));
+
+app.use(verifyJWT); //handle also in FE whe the AccessToken Expires (=>403) call /refresh route to get a new one without the login infos
+app.use("/waitlist", require("./routes/waitlist")); //handle also in FE whe the AccessToken Expires (=>403) call /refresh route to get a new one without the login infos
 
 mongoose.connection.once("open", () => {
   console.log("✅ Connected to MongoDB");

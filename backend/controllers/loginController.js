@@ -26,7 +26,7 @@ const handleLogin = async (req, res) => {
         },
       },
       process.env.ACCESS_TOKEN_SECRET,
-      { expiresIn: "1h" }
+      { expiresIn: "10m" }
     );
 
     //create refresh token that will be stored on the client  => ex. cookies httpOnly

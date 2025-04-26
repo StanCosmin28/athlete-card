@@ -39,4 +39,18 @@ const waitlistAthlete = async (req, res) => {
     return res.status(500).json({ message: "Eroare de Server" });
   }
 };
-module.exports = { getAllAthletes, getAthleteData, waitlistAthlete };
+
+const getWaitlistAthletes = async (req, res) => {
+  const waitlistAthletes = await Waitlist.find();
+  if (!waitlistAthletes)
+    return res.status(204).json({ message: "No waitlist athletes! :(" });
+
+  return res.json(waitlistAthletes);
+};
+
+module.exports = {
+  getAllAthletes,
+  getAthleteData,
+  waitlistAthlete,
+  getWaitlistAthletes,
+};
